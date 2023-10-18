@@ -23,6 +23,9 @@ import jakarta.validation.constraints.Size;
 public class Usuario {
 	
 	@Schema(example = "email@email.com.br")
+	@NotNull(message = "O Atributo Usuário é Obrigatório!")
+	@Email(message = "O Atributo Usuário deve ser um email válido!")
+	private String usuario;
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +34,9 @@ public class Usuario {
 	@NotNull(message = "o atributo nome é obrigatório!")
 	private String nome;
 
-	@NotNull(message = "o atributo usuário é obrigatório!")
-	@Email(message = "deve ser um email válido!")
-	private String usuario;
+	//@NotNull(message = "o atributo usuário é obrigatório!")//
+	//@Email(message = "deve ser um email válido!")//
+	//private String usuario;//
 
 	@NotBlank(message = "o atributo senha é obrigatório!")
 	@Size(min = 8, message = "a senha deve ter no mínimo 8 caracteres!")
